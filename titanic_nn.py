@@ -45,3 +45,46 @@ model.fit(x,y,epochs=50,batch_size=10)
 
 _, accuracy = model.evaluate(x_test,y_test)
 print('accuracy: %2f' %(accuracy*100))
+
+##UNCOMMENT BELOW CODE TO RUN FOR LOOP OF VARIOUS CONFIGURATIONS OF BATCH NUMBER
+##AND EPOCHS
+        
+##for batch in [32,64,128,256]:
+##
+##    for epoch in [10,25,50,150,300]:
+##
+##        model = Sequential()
+##        model.add(Dense(7,input_shape=(7,),activation='relu'))
+##        model.add(Dense(4,activation='relu'))
+##        model.add(Dense(1,activation='sigmoid'))
+##
+##        model.compile(loss='binary_crossentropy',optimizer='adam',metrics=['accuracy'])
+##
+##        model.fit(x,y,epochs=epoch,batch_size=batch)
+##
+##        _, accuracy = model.evaluate(x_test,y_test    )
+##        results_table.append([batch,epoch,accuracy*100])
+##print(tabulate(results_table,headers='firstrow',tablefmt='fancy_grid'))
+
+###plotting data
+##results_table = np.array(results_table)
+##x_axis = [10,25,50,150,300]
+####batch_10 = results_table[1:5,1]
+##batch_32 = results_table[1:6,2].astype(float)
+##batch_64 = results_table[6:11,2].astype(float)
+##batch_128 = results_table[11:16,2].astype(float) 
+##batch_256 = results_table[16:21,2].astype(float) 
+##
+##line1, = plt.plot(x_axis,batch_32,color='blue')
+##line1.set_label('Batch = 32')
+##line2, = plt.plot(x_axis,batch_64,color='pink')
+##line2.set_label('Batch = 64')
+##line3, = plt. plot(x_axis,batch_128,color='green')
+##line3.set_label('Batch = 128')
+##line4, = plt.plot(x_axis,batch_256,color='orange')
+##line4.set_label('Batch = 256')
+##
+##plt.xlabel('Number of Epochs')
+##plt.ylabel('Accuracy')
+##plt.legend()
+##plt.show()
